@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
         }
-
     }
 
     @Override
