@@ -14,6 +14,17 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
 
+    // 엑티비티가 종료될때 이곳을 실행함
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mediaPlayer.isPlaying()){
-
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
                 }
             }
         });
+
+
 
     }
 }
